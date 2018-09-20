@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
 public class GUI extends JFrame{
 
@@ -18,13 +17,13 @@ public class GUI extends JFrame{
     public int mx = -100;
     public int my = -100;
 
-    public  int reStartX = 0;
-    public  int reStartY = 5;
-    public  int MessageCenterX = reStartX +35;
-    public  int MessageCenterY = reStartY +35;
+    public int reStartX = 0;
+    public int reStartY = 5;
+    public int MessageCenterX = reStartX +35;
+    public int MessageCenterY = reStartY +35;
 
-    public  int timeX = 590;
-    public  int timeY = 5;
+    public int timeX = 590;
+    public int timeY = 5;
 
     public int wMesX = 200;
     public int wMesY = -50;
