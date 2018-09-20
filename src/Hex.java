@@ -236,6 +236,41 @@ public class Hex extends JFrame{
             }
         }
 
-        public class Board extends JPanel {}
-
+        public class Board extends JPanel {
+        public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        //time counter painting
+        g.setColor(Color.BLACK);
+        g.fillRect(timeX,timeY,120,60);
+        if (inGame ==true) {
+            sec = (int) ((new Date().getTime() - startDate.getTime()) / 1000);
+        }
+        if(sec > 999){
+            sec = 999;
+        }
+        if (inGame == true){
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Tahoma", Font.PLAIN, 70));
+        }else{
+            g.setColor(Color.RED);
+            g.setFont(new Font("Tahoma", Font.PLAIN, 70));
+            wMes = "YOU LOSE";
+            wMesX = 250;
+            wMesY = 650;
+            g.setFont(new Font("Tahoma",Font.PLAIN,60));
+            g.drawString(wMes, wMesX, wMesY);
+        }
+        if (sec <10){
+            g.drawString("00"+Integer.toString(sec), timeX, timeY+55);
+        }
+        else if (sec < 100){
+            g.drawString("0"+Integer.toString(sec), timeX, timeY+55);
+        }
+        else {
+            g.drawString(Integer.toString(sec), timeX, timeY+55);
+        }
+        for (int x = 0; x < box; x++)
+            for (int y = 0; y < box; y++) field[y][x].paintComponent(g, x, y);
+    }
+}
 }
